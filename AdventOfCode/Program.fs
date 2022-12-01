@@ -8,8 +8,11 @@ let solutions = [
 ]
 
 [<EntryPoint>]
-let main args =
-    let argsList = args |> Array.toList
-    let solutionNumber = args[0] |> int |> (-)1
-    solutions[solutionNumber] argsList.Tail
+let main argsArray =
+    let (dayNumber, args) =
+        match (argsArray |> Array.toList) with
+        | dayNumString :: args -> (dayNumString |> int |> (-)1, args)
+        | [] -> failwith "Please provide the day number as an argument"
+
+    solutions[dayNumber] args
     0
