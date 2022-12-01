@@ -11,7 +11,4 @@ let solution (args: string list) =
         |> List.map List.sum
         |> List.sortDescending
 
-    let biggest = elfSums.Head
-    let topThree = elfSums |> List.take 3 |> List.sum
-
-    printfn $"Biggest: %i{biggest}; Top three: %i{topThree}"
+    printfn $"Biggest: %i{ elfSums.Head }; Top three: %i{ (elfSums |> List.take 3 |> List.sum) }"
