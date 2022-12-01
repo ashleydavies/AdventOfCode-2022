@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Compile Include="DayOne.fs" />
+        <Compile Include="Program.fs" />
+        <Content Include="inputs\day1-ex.txt">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="inputs\day1-1.txt">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="FSharpx.Async" Version="1.14.1" />
+      <PackageReference Include="FSharpx.Collections" Version="3.1.0" />
+      <PackageReference Include="FSharpx.Core" Version="1.8.32" />
+      <PackageReference Include="FSharpx.Extras" Version="3.1.0" />
+    </ItemGroup>
+
+</Project>
