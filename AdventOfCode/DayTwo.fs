@@ -24,8 +24,7 @@ let outcomeScore a b =
     elif a = whatWinsAgainst b then 6
     else 0
 
-let scoreRound round =
-    match round with
+let scoreRound = function 
     | elf :: [ player ] -> baseScore player + outcomeScore player elf
     | _ -> failwith "unknown round format"
 
@@ -40,8 +39,7 @@ let inputConversion =
           ("Z", Hand.Scissors) ]
 
 // For the second scenario, Rock -> must lose, Paper -> must draw, Scissors -> Must win
-let correctPlayerHand round =
-    match round with
+let correctPlayerHand = function
     | elf :: [ r ] when r = predeterminedLossCode -> elf :: [ elf |> whatWinsAgainst |> whatWinsAgainst ]
     | elf :: [ r ] when r = predeterminedDrawCode -> elf :: [ elf ]
     | elf :: [ r ] when r = predeterminedVictoryCode -> elf :: [ elf |> whatWinsAgainst ]

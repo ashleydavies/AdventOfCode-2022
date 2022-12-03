@@ -13,3 +13,7 @@ let BlockGrouping =
     >> List.map LineGrouping
 
 let NumericBlockGrouping = BlockGrouping >> List.map (List.map int)
+
+let ListIndex list =
+    (=)
+    >> (flip List.findIndex) list
