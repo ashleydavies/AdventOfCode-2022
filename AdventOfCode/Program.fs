@@ -4,7 +4,7 @@ open Microsoft.FSharp.Collections
 open Microsoft.FSharp.Core
 open FSharpx
 
-let solutions = [ DayOne.solution; DayTwo.solution; DayThree.solution ]
+let solutions = [ DayOne.solution; DayTwo.solution; DayThree.solution; DayFour.solution; DayFive.solution ]
 
 [<EntryPoint>]
 let main argsArray =

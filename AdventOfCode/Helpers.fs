@@ -17,3 +17,8 @@ let NumericBlockGrouping = BlockGrouping >> List.map (List.map int)
 let ListIndex list =
     (=)
     >> (flip List.findIndex) list
+
+let ArrayGet idx = flip Array.get idx
+let (<&>) f g x = f x && g x
+let (<|>) f g x = f x || g x
+let (>&<) x (b, c) = x >= b && x <= c
