@@ -18,15 +18,14 @@ let parseInstruction instruction =
 
 let solve startingStacks cranePickupModifier =
     let rec solveRec (currentStacks: char list []) = function
-        | instruction :: instructions ->
-            match parseInstruction instruction with
+        | currentInstruction :: remainingInstructions ->
+            match parseInstruction currentInstruction with
             | count :: fromCol :: [ toCol ] ->
-                let movedElements, newFromStack = currentStacks.[fromCol - 1] |> List.splitAt count
-                let newToStack = currentStacks.[toCol - 1] |> List.append (movedElements |> cranePickupModifier)
-                solveRec (currentStacks
-                     |> Array.updateAt (toCol - 1) newToStack
-                     |> Array.updateAt (fromCol - 1) newFromStack)
-                    instructions
+                let toCol, fromCol = toCol - 1, fromCol - 1
+                let movedElements, newFromStack = currentStacks.[fromCol] |> List.splitAt count
+                let newToStack = currentStacks.[toCol] |> List.append (movedElements |> cranePickupModifier)
+                let newStacks = currentStacks |> Array.updateAt toCol newToStack |> Array.updateAt fromCol newFromStack
+                solveRec newStacks remainingInstructions
             | _ -> failwith $"Failed to parse instruction"
         | [] -> currentStacks
     solveRec startingStacks >> Array.map List.head >> System.String
@@ -50,6 +49,6 @@ let solution (args: string list) =
            |> List.split (String.contains "1")) with
     | startingCrates, columnHeaders :: _ :: instructions ->
         let columnPositions = parseColumnPositions columnHeaders
-        printfn $"CrateMover 9000: %s{solve (parseInitialCrates columnPositions startingCrates) id instructions}"
-        printfn $"CrateMover 9001: %s{solve (parseInitialCrates columnPositions startingCrates) List.rev instructions}"
+        printfn $"CrateMover 9000: %s{solve (parseInitialCrates columnPositions startingCrates) List.rev instructions}"
+        printfn $"CrateMover 9001: %s{solve (parseInitialCrates columnPositions startingCrates) id instructions}"
     | _ -> failwith "Invalid input"
