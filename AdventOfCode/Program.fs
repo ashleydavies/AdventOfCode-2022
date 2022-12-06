@@ -4,7 +4,13 @@ open Microsoft.FSharp.Collections
 open Microsoft.FSharp.Core
 open FSharpx
 
-let solutions = [ DayOne.solution; DayTwo.solution; DayThree.solution; DayFour.solution; DayFive.solution ]
+let solutions =
+    [ DayOne.solution
+      DayTwo.solution
+      DayThree.solution
+      DayFour.solution
+      DayFive.solution
+      DaySix.solution ]
 
 [<EntryPoint>]
 let main argsArray =
@@ -12,5 +18,6 @@ let main argsArray =
         match (argsArray |> Array.toList) with
         | dayNumString :: args -> (dayNumString |> int |> (flip (-) 1), args)
         | [] -> failwith "Please provide the day number as an argument"
+
     solutions[dayNumber] args
     0
