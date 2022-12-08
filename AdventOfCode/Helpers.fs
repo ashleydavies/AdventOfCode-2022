@@ -4,6 +4,9 @@ open System
 open FSharpx
 open Microsoft.FSharp.Collections
 
+let MaxInt a b = if a > b then a else b
+let ClampPositive = MaxInt 0
+
 let LineGrouping =
     String.splitChar [| '\n' |] >> List.ofSeq
 
@@ -13,6 +16,9 @@ let BlockGrouping =
     >> List.map LineGrouping
 
 let NumericBlockGrouping = BlockGrouping >> List.map (List.map int)
+
+let (|BeginsWith|_|) (prefix: string) (s: string) =
+    if s.StartsWith prefix then Some (s.Substring prefix.Length) else None
 
 let ListIndex list =
     (=)
