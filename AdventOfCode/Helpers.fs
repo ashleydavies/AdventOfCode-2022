@@ -4,8 +4,10 @@ open System
 open FSharpx
 open Microsoft.FSharp.Collections
 
-let MaxInt a b = if a > b then a else b
+let MaxInt = max 
 let ClampPositive = MaxInt 0
+
+let min3 x = min x >> min
 
 let LineGrouping =
     String.splitChar [| '\n' |] >> List.ofSeq
@@ -28,3 +30,10 @@ let ArrayGet idx = flip Array.get idx
 let (<&>) f g x = f x && g x
 let (<|>) f g x = f x || g x
 let (>&<) x (b, c) = x >= b && x <= c
+
+let Array2DFold (folder: 'S -> 'T -> 'S) (state: 'S) (array: 'T[,]) =
+    let mutable state = state
+    for x in 0 .. Array2D.length1 array - 1 do
+        for y in 0 .. Array2D.length2 array - 1 do
+            state <- folder state (array.[x, y])
+    state
