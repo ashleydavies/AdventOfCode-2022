@@ -17,6 +17,16 @@
         <Compile Include="DayEight.fs" />
         <Compile Include="DayNine.fs" />
         <Compile Include="DayTen.fs" />
+        <Compile Include="DayEleven.fs" />
+        <Compile Include="DayTwelve.fs" />
+        <Compile Include="DayThirteen.fs" />
+        <Compile Include="DayFourteen.fs" />
+        <Compile Include="DayFifteen.fs" />
+        <Compile Include="DaySixteen.fs" />
+        <Compile Include="DaySeventeen.fs" />
+        <Compile Include="DayEighteen.fs" />
+        <Compile Include="DayNineteen.fs" />
+        <Compile Include="DayTwenty.fs" />
         <Compile Include="Program.fs" />
         <Content Include="inputs\day1-ex.txt">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -82,6 +92,12 @@
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
         <Content Include="inputs\day10-1.txt">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="inputs\day20-ex.txt">
+          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </Content>
+        <Content Include="inputs\day20-1.txt">
           <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </Content>
     </ItemGroup>

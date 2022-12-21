@@ -14,7 +14,17 @@ let solutions =
       DaySeven.solution
       DayEight.solution
       DayNine.solution
-      DayTen.solution ]
+      DayTen.solution
+      DayEleven.solution
+      DayTwelve.solution
+      DayThirteen.solution
+      DayFourteen.solution
+      DayFifteen.solution
+      DaySixteen.solution
+      DaySeventeen.solution
+      DayEighteen.solution
+      DayNineteen.solution
+      DayTwenty.solution ]
 
 [<EntryPoint>]
 let main argsArray =
